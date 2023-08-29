@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffe44788-d87c-4331-905a-dcee6246cf3c" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/src/test/java/dao/DriverDAOImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DriverDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DriverDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/WasteTruckDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/WasteTruckDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dat/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/WasteTruck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/WasteTruck.java" afterDir="false" />
     </list>
@@ -82,7 +79,7 @@
       <recent name="dao.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DriverDAOImplTest.deleteDriver">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dat.Main" />
       <module name="Recycling_Excercise" />
@@ -146,10 +143,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.DriverDAOImplTest.deleteDriver" />
         <item itemvalue="JUnit.DriverDAOImplTest.getDriverById" />
         <item itemvalue="JUnit.DriverDAOImplTest.saveDriver" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +158,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693245255550</updated>
-      <workItem from="1693245256548" duration="29195000" />
+      <workItem from="1693245256548" duration="33880000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />

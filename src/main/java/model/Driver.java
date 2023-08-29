@@ -25,8 +25,10 @@ public class Driver {
     private String surname;
     private BigDecimal salary;
     @Column(name = "truck_id")
+    private Integer truckId;
+
     @ManyToOne
-    private WasteTruck truckId;
+    private WasteTruck wasteTruck;
 
 
     public Driver(String name, String surname, BigDecimal salary) {

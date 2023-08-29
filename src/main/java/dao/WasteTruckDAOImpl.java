@@ -59,7 +59,12 @@ public class WasteTruckDAOImpl implements IWasteTruckDAO {
 
     @Override
     public void addDriverToWasteTruck(WasteTruck wasteTruck, Driver driver) {
-
+       wasteTruck.addDriver(driver);
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            em.merge(driver);
+            em.getTransaction().commit();
+        }
     }
 
     @Override
