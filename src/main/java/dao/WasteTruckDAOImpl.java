@@ -1,8 +1,10 @@
 package dao;
 
 import config.HibernateConfig;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.OneToMany;
 import model.Driver;
 import model.WasteTruck;
 
@@ -36,7 +38,7 @@ public class WasteTruckDAOImpl implements IWasteTruckDAO {
 
     @Override
     public void setWasteTruckAvailable(WasteTruck wasteTruck, boolean available) {
-        wasteTruck.setAvailable(true);
+        wasteTruck.setAvailable(available);
         try(EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.merge(wasteTruck);
@@ -53,6 +55,7 @@ public class WasteTruckDAOImpl implements IWasteTruckDAO {
            em.getTransaction().commit();
        }
     }
+
 
     @Override
     public void addDriverToWasteTruck(WasteTruck wasteTruck, Driver driver) {

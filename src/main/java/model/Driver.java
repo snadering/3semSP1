@@ -19,10 +19,14 @@ public class Driver {
     @Id
     private String id;
     @Temporal(TemporalType.DATE)
+    @Column(name = "employment_date")
     private Date employmentDate;
     private String name;
     private String surname;
     private BigDecimal salary;
+    @Column(name = "truck_id")
+    @ManyToOne
+    private WasteTruck truckId;
 
 
     public Driver(String name, String surname, BigDecimal salary) {

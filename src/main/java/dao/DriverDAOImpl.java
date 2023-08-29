@@ -15,15 +15,15 @@ public class DriverDAOImpl implements IDriverDAO {
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
     @Override
     public String saveDriver(String name, String surname, BigDecimal salary) {
-        String id;
+        Driver driver;
        try(EntityManager em = emf.createEntityManager()) {
-           Driver driver = new Driver(name, surname, salary);
+           driver = new Driver(name, surname, salary);
            em.getTransaction().begin();
            em.persist(driver);
            em.getTransaction().commit();
-           id = driver.generateId();
+
        }
-       return id;
+       return driver.generateId();
     }
 
     @Override
@@ -38,11 +38,13 @@ public class DriverDAOImpl implements IDriverDAO {
 
     @Override
     public Driver updateDriver(Driver driver) {
-        Driver updatedDriver;
-        try(EntityManager em = emf.createEntityManager()) {
-            em.getTransaction().begin();
-            updatedDriver = em.merge(driver);
-            em.getTransaction().commit();
+        Driver updatedDriver = null;
+        if (driver.getId() != null) {
+            try (EntityManager em = emf.createEntityManager()) {
+                em.getTransaction().begin();
+                updatedDriver = em.merge(driver);
+                em.getTransaction().commit();
+            }
         }
         return updatedDriver;
     }
@@ -50,7 +52,7 @@ public class DriverDAOImpl implements IDriverDAO {
     @Override
     public void deleteDriver(String id) {
         Driver driver = getDriverById(id);
-        if (driver != null) {
+        if (driver.getId() != null) {
             try (EntityManager em = emf.createEntityManager()) {
                 em.getTransaction().begin();
                 em.remove(driver);

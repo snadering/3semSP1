@@ -21,11 +21,12 @@ public class Main {
         Driver d2 = new Driver("Bastian", "Holm", salary);
         Driver d3 = new Driver("Liss", "Udyr", newSalary);
 
-        /*
+/*
         driverDAO.saveDriver(d1.getName(), d1.getSurname(), d1.getSalary());
         driverDAO.saveDriver(d2.getName(), d2.getSurname(), d2.getSalary());
         driverDAO.saveDriver(d3.getName(), d3.getSurname(), d3.getSalary());
-         */
+
+ */
         List<Driver> drivers = driverDAO.findAllDriversEmployedAtTheSameYear("2021");
         List<Driver> salaryList = driverDAO.fetchAllDriversWithSalaryGreaterThan10000();
         List<String> namesOfDrivers = driverDAO.fetchFirstNameOfAllDrivers();

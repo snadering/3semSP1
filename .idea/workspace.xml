@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffe44788-d87c-4331-905a-dcee6246cf3c" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/src/test/java/dao/DriverDAOImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DriverDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DriverDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IDriverDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IDriverDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/WasteTruckDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/WasteTruckDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dat/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Driver.java" afterDir="false" />
@@ -24,6 +23,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,6 +60,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,7 +73,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="dao" />
+      <recent name="dao.test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DriverDAOImplTest.deleteDriver">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dat.Main" />
       <module name="Recycling_Excercise" />
@@ -85,8 +96,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DriverDAOImplTest.deleteDriver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recycling_Excercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.DriverDAOImplTest" />
+      <option name="METHOD_NAME" value="deleteDriver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DriverDAOImplTest.getDriverById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recycling_Excercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.DriverDAOImplTest" />
+      <option name="METHOD_NAME" value="getDriverById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DriverDAOImplTest.saveDriver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recycling_Excercise" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.DriverDAOImplTest" />
+      <option name="METHOD_NAME" value="saveDriver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DriverDAOImplTest.deleteDriver" />
+        <item itemvalue="JUnit.DriverDAOImplTest.getDriverById" />
+        <item itemvalue="JUnit.DriverDAOImplTest.saveDriver" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -99,7 +161,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693245255550</updated>
-      <workItem from="1693245256548" duration="21218000" />
+      <workItem from="1693245256548" duration="29195000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
