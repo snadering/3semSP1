@@ -13,7 +13,7 @@ public interface IDriverDAO {
     Driver updateDriver(Driver driver);
     void deleteDriver(String id);
     List<Driver> findAllDriversEmployedAtTheSameYear(String year);
-    List<BigDecimal> fetchAllDriversWithSalaryGreaterThan10000();
+    List<Driver> fetchAllDriversWithSalaryGreaterThan10000();
     double fetchHighestSalary();
     List<String> fetchFirstNameOfAllDrivers();
     long calculateNumberOfDrivers();

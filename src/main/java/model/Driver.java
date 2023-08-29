@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Random;
 
@@ -14,6 +13,7 @@ import java.util.Random;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "driver")
 public class Driver {
 
     @Id
@@ -45,10 +45,9 @@ public class Driver {
     public String generateId(){
         if(id == null){
 
-            /*DateMonthYear*/
-
-            //Date
-            int size = employmentDate.getDate();
+            /*YearMonthDate*/
+            //Year
+           int size = ((employmentDate.getYear() + 1900) % 1000);
             if (size < 10){
                 id = "0";
             } else {
@@ -62,13 +61,15 @@ public class Driver {
             }
                 id += size;
 
-            //Year
-            size = ((employmentDate.getYear() + 1900) % 1000);
+            //Date
+            size = employmentDate.getDate();
             if (size < 10){
                 id += "0";
             }
-                id += size;
-        }
+                id += String.valueOf(size);
+
+
+
 
 
         id += "-";
@@ -84,6 +85,8 @@ public class Driver {
 
         //Last letter of surname
         id += surname.toUpperCase().charAt(surname.length()-1);
+        }
+
         return id;
     }
 
