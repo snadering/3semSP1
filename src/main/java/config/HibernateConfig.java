@@ -2,8 +2,6 @@ package config;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
-import model.Driver;
-import model.WasteTruck;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +20,7 @@ public class HibernateConfig {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/recyclingExcercise?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/xxxx?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console
@@ -57,8 +55,7 @@ public class HibernateConfig {
 
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
-        configuration.addAnnotatedClass(Driver.class);
-        configuration.addAnnotatedClass(WasteTruck.class);
+        //configuration.addAnnotatedClass(Driver.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
