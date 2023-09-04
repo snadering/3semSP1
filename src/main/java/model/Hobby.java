@@ -18,7 +18,7 @@ import java.util.Set;
 public class Hobby {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -29,4 +29,15 @@ public class Hobby {
 
     @ManyToMany
     private Set<User> users = new HashSet<>();
+
+    public Hobby(String name, String category) {
+        this.name = name;
+        this.category = category;
+    }
+
+    public void addUser(User user) {
+        if (user != null) {
+            users.add(user);
+        }
+    }
 }

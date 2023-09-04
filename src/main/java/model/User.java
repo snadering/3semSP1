@@ -1,10 +1,7 @@
 package model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +29,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "address")
+    @JoinColumn(name = "address")
     @ManyToOne()
     private Address address;
 
@@ -51,4 +48,26 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "event_id", nullable = false)
     )
     private Set<Event> events = new HashSet<>();
+
+    @Builder
+    public User(String name, String surname, String phoneNumber, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public void addHobby(Hobby hobby) {
+        if (hobby != null) {
+            this.hobbies.add(hobby);
+            hobby.addUser(this);
+        }
+    }
+
+    public void addEvent(Event event) {
+        if (event != null) {
+            this.events.add(event);
+            event.addUser(this);
+        }
+    }
 }

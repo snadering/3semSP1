@@ -1,10 +1,7 @@
 package model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +14,7 @@ import java.util.Set;
 @Entity
 public class Event {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -27,13 +24,26 @@ public class Event {
     private float price;
 
     @ManyToOne
-    @Column(name = "address")
+    @JoinColumn(name = "address")
     private Address address;
 
     @ManyToOne
-    @Column(name = "hobby")
+    @JoinColumn(name = "hobby")
     private Hobby hobby;
 
     @ManyToMany
     private Set<User> users = new HashSet<>();
+
+    @Builder
+    public Event(String name, float price, Address address) {
+        this.name = name;
+        this.price = price;
+        this.address = address;
+    }
+
+    public void addUser(User user) {
+        if (user != null) {
+            users.add(user);
+        }
+    }
 }
