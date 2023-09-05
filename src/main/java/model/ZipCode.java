@@ -2,11 +2,13 @@ package model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@NoArgsConstructor
 @Getter
 @Table(name = "zipcode")
 public class ZipCode {
@@ -22,4 +24,10 @@ public class ZipCode {
     @OneToMany(mappedBy = "zip")
     private Set<Address> addresses = new HashSet<>();
 
+    public ZipCode(int zip, String cityName, String regionName, String municipalityName) {
+        this.zip = zip;
+        this.cityName = cityName;
+        this.regionName = regionName;
+        this.municipalityName = municipalityName;
+    }
 }
