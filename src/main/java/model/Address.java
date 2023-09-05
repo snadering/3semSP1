@@ -1,12 +1,16 @@
 package model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 public class Address {
 
@@ -18,7 +22,7 @@ public class Address {
     @Column(name = "number")
     private String number;
     @ManyToOne
-    @Column(name = "zip")
+    @JoinColumn(name = "zip")
     private ZipCode zip;
     @OneToMany(mappedBy = "address")
     private Set<User> users = new HashSet<>();

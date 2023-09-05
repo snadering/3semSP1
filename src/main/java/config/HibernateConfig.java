@@ -2,10 +2,7 @@ package config;
 
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
-import model.Address;
-import model.Event;
-import model.Hobby;
-import model.User;
+import model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -63,6 +60,7 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(Hobby.class);
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Address.class);
+        configuration.addAnnotatedClass(ZipCode.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
