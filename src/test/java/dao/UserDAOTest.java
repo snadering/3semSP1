@@ -3,7 +3,6 @@ package dao;
 import model.Address;
 import model.User;
 import model.ZipCode;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

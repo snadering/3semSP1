@@ -1,10 +1,7 @@
 package dao;
 
-import config.HibernateConfig;
-import jakarta.persistence.EntityManagerFactory;
 import model.Address;
 import model.ZipCode;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
