@@ -72,7 +72,7 @@ public class UserDAO {
         return userInformationList;
     }
 
-    public List<User> getAllPhoneNumbersFromUser(int id){
+    public List<User> getAllPhoneNumbersFromUserById(int id){
         List<User> userPhoneNumberList;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
@@ -81,5 +81,16 @@ public class UserDAO {
             userPhoneNumberList = typedQuery.getResultList();
         }
         return userPhoneNumberList;
+    }
+
+    public List<User> getAllInformationOnUserByPhoneNumber(String phoneNumber){
+        List<User> userInformationList;
+        try (EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select u from User u where phoneNumber(u.phoneNumber) = :phoneNumber", User.class);
+            typedQuery.setParameter("phoneNumber",phoneNumber);
+            userInformationList = typedQuery.getResultList();
+        }
+        return userInformationList;
     }
 }
