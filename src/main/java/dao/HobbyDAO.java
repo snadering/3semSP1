@@ -41,5 +41,4 @@ public List<User> allUsersWithGivenHobby(int id){
         }
         return amountOfUsersWithGivenHobby;
     }
-
 }

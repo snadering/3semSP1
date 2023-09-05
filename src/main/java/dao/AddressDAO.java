@@ -3,8 +3,12 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 import model.Address;
+import model.User;
 import model.ZipCode;
+
+import java.util.List;
 
 public class AddressDAO {
 
@@ -66,10 +70,24 @@ public class AddressDAO {
         return zipCode;
     }
 
+    public List<User> getUsersByCity(int zip){
+        List<User> usersByCitiesList;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where zip(a.zip) = :zip", User.class);
+            usersByCitiesList = typedQuery.getResultList();
+        }
+        return usersByCitiesList;
+    }
 
-
-
-
+    public List<ZipCode> getAllPostcodesAndCityNamesInDenmark(){
+        List<ZipCode> allPostcodesAndCityNamesInDenmark;
+        try (EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<ZipCode> typedQuery = em.createQuery("select z.zip, z.cityName from ZipCode z", ZipCode.class);
+            return allPostcodesAndCityNamesInDenmark = typedQuery.getResultList();
+        }
+    }
 }
 
 
