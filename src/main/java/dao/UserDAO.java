@@ -82,4 +82,16 @@ public class UserDAO {
         }
         return userPhoneNumberList;
     }
+
+    public List<Object[]> getAllHobbiesAndAmountOfInterested(){
+    List<Object[]> hobbiesAndInterested;
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            String jpql = "SELECT h.name, COUNT(u) " + "FROM User u " + "JOIN u.hobbies h " + "GROUP BY h.name";
+
+            TypedQuery<Object[]> typedQuery = em.createQuery(jpql, Object[].class);
+            hobbiesAndInterested = typedQuery.getResultList();
+        }
+        return hobbiesAndInterested;
+    }
 }
