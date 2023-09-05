@@ -1,0 +1,204 @@
+Index: src/main/java/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\n\nimport jakarta.persistence.*;\n\n@Entity\n@Table(name = \"users\")\npublic class User {\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private int id;\n\n\n    public User() {\n\n\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/User.java b/src/main/java/model/User.java
+--- a/src/main/java/model/User.java	(revision ea2bce8c9e6c9be001af475ac285f749eb2298f3)
++++ b/src/main/java/model/User.java	(date 1693902429158)
+@@ -16,4 +16,4 @@
+     }
+ 
+ 
+-}
++}
+\ No newline at end of file
+Index: src/test/java/dao/DriverDAOImplTest.java
+===================================================================
+diff --git a/src/test/java/dao/DriverDAOImplTest.java b/src/test/java/dao/DriverDAOImplTest.java
+deleted file mode 100644
+--- a/src/test/java/dao/DriverDAOImplTest.java	(revision ea2bce8c9e6c9be001af475ac285f749eb2298f3)
++++ /dev/null	(revision ea2bce8c9e6c9be001af475ac285f749eb2298f3)
+@@ -1,79 +0,0 @@
+-package dao;
+-
+-import config.HibernateConfig;
+-import jakarta.persistence.EntityManager;
+-import jakarta.persistence.EntityManagerFactory;
+-import model.Driver;
+-import org.junit.jupiter.api.AfterEach;
+-import org.junit.jupiter.api.BeforeAll;
+-import org.junit.jupiter.api.BeforeEach;
+-import org.junit.jupiter.api.Test;
+-
+-import java.math.BigDecimal;
+-
+-import static org.junit.jupiter.api.Assertions.*;
+-
+-class DriverDAOImplTest {
+-
+-
+-        Driver d1 = new Driver("Thresh", "Ulriksen", new BigDecimal("10500"));
+-        Driver d2 = new Driver("Annie", "Holm", new BigDecimal("5200"));
+-        Driver d3 = new Driver("Quinn", "Larsen", new BigDecimal("35250"));
+-        DriverDAOImpl dao = new DriverDAOImpl();
+-    @BeforeEach
+-    void setUp(){
+-    }
+-
+-    @Test
+-    void saveDriver() {
+-       assertNull(d1.getId());
+-       d1.setId(dao.saveDriver(d1.getName(), d1.getSurname(), new BigDecimal("69420")));
+-       assertNotNull(d1.getId());
+-    }
+-
+-    @Test
+-    void getDriverById() {
+-        Driver driver;
+-        d2.setId(dao.saveDriver(d1.getName(), d1.getSurname(), new BigDecimal("42069")));
+-        driver = dao.getDriverById(d2.getId());
+-        assertNotNull(driver.getId());
+-    }
+-
+-    @Test
+-    void updateDriver() {
+-
+-    }
+-
+-    @Test
+-    void deleteDriver() {
+-       String id = dao.saveDriver(d1.getName(), d1.getSurname(), new BigDecimal("12345"));
+-       assertNotNull(dao.getDriverById(id));
+-       dao.deleteDriver(id);
+-       assertNull(dao.getDriverById(id));
+-    }
+-
+-    @Test
+-    void findAllDriversEmployedAtTheSameYear() {
+-
+-    }
+-
+-    @Test
+-    void fetchAllDriversWithSalaryGreaterThan10000() {
+-    }
+-
+-    @Test
+-    void fetchHighestSalary() {
+-    }
+-
+-    @Test
+-    void fetchFirstNameOfAllDrivers() {
+-    }
+-
+-    @Test
+-    void calculateNumberOfDrivers() {
+-    }
+-
+-    @Test
+-    void fetchDriverWithHighestSalary() {
+-    }
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"da2157ea-33f8-4408-aaf1-3027c9a7fd74\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2UvZp2HTIRVPeqgzkVqRaw65JK9\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"flattenPackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n    <option name=\"showVisibilityIcons\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/sanderroust/Documents/GitHub/3semSP1&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"da2157ea-33f8-4408-aaf1-3027c9a7fd74\" name=\"Changes\" comment=\"\" />\n      <created>1693822196070</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1693822196070</updated>\n      <workItem from=\"1693822197161\" duration=\"291000\" />\n      <workItem from=\"1693822494693\" duration=\"88000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ea2bce8c9e6c9be001af475ac285f749eb2298f3)
++++ b/.idea/workspace.xml	(date 1693902714382)
+@@ -4,19 +4,20 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/79fd04d3-718c-435b-a79b-0c7e842d2b37/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment=".">
++      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -30,16 +31,25 @@
+     <option name="showLibraryContents" value="true" />
+     <option name="showVisibilityIcons" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/sanderroust/Documents/GitHub/3semSP1&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "/Users/sanderroust/Documents/GitHub/3semSP1",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
++    "vue.rearranger.settings.migration": "true"
++  },
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "postgresql"
++    ]
+   }
+-}</component>
++}]]></component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -50,10 +60,24 @@
+       <updated>1693822196070</updated>
+       <workItem from="1693822197161" duration="291000" />
+       <workItem from="1693822494693" duration="88000" />
++      <workItem from="1693822596174" duration="1979000" />
++    </task>
++    <task id="LOCAL-00001" summary=".">
++      <option name="closed" value="true" />
++      <created>1693823437280</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1693823437280</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="." />
++    <option name="LAST_COMMIT_MESSAGE" value="." />
++  </component>
+ </project>
+\ No newline at end of file
