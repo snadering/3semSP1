@@ -23,33 +23,28 @@ public class EventDAO {
             em.getTransaction().begin();
             event = em.find(Event.class, id);
             em.getTransaction().commit();
-
-        }
+            }
         return event;
     }
 
-    public Event updateEvent(Event event) {
-
-
+    public void updateEvent(Event event) {
         try (EntityManager em = emf.createEntityManager()) {
-            if(readEvent(event.getId())!= null) {
+            if(event.getId() != null) {
                 em.getTransaction().begin();
                 em.merge(event);
                 em.getTransaction().commit();
             }
         }
-        return event;
     }
 
     public void deleteEvent(int id) {
 
-        Event event;
-        try (EntityManager em = emf.createEntityManager()) {
-
-            em.getTransaction().begin();
-            event = em.find(Event.class, id);
-            if (event != null) {
+        Event event = readEvent(id);
+        if(event.getId() != null) {
+            try (EntityManager em = emf.createEntityManager()) {
+                em.getTransaction().begin();
                 em.remove(event);
+                em.getTransaction().commit();
             }
         }
     }
