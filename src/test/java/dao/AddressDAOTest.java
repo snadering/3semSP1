@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AddressDAOTest {
+    AddressDAO dao = AddressDAO.getInstance();
 
     @Test
     void createAddress() {
-        AddressDAO dao = new AddressDAO();
         int id = dao.createAddress("Testvej", "1", dao.readZipCode(2625));
         Address address = dao.readAddress(id);
         ZipCode zip = new ZipCode(2625, "Vallensbæk", "Hovedstaden", "Vallensbæk");
@@ -25,7 +25,6 @@ class AddressDAOTest {
 
     @Test
     void readAddress() {
-        AddressDAO dao = new AddressDAO();
         int id = dao.createAddress("Testvej", "2", dao.readZipCode(2625));
         Address address = dao.readAddress(id);
         assertEquals("Testvej", address.getStreet());
@@ -34,7 +33,6 @@ class AddressDAOTest {
 
     @Test
     void updateAddress() {
-        AddressDAO dao = new AddressDAO();
         int id = dao.createAddress("Testvej", "3", dao.readZipCode(2625));
         Address address = dao.readAddress(id);
 
@@ -53,7 +51,6 @@ class AddressDAOTest {
 
     @Test
     void deleteAddress() {
-        AddressDAO dao = new AddressDAO();
         int id = dao.createAddress("Testvej", "4", dao.readZipCode(2625));
         Address address = dao.readAddress(id);
         dao.deleteAddress(address);
