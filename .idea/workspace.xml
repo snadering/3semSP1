@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="Added Address and ZipCode entity classes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/dao/AddressDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AddressDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ZipCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ZipCode.java" afterDir="false" />
+    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="Added AddressDAO + Test&#10;Added Entities: ZipCode + Address">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693907490918</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added AddressDAO + Test&#10;Added Entities: ZipCode + Address">
+      <option name="closed" value="true" />
+      <created>1693910390494</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693910390494</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added entity classes" />
     <MESSAGE value="Added Address and ZipCode entity classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Address and ZipCode entity classes" />
+    <MESSAGE value="Added AddressDAO + Test&#10;Added Entities: ZipCode + Address" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added AddressDAO + Test&#10;Added Entities: ZipCode + Address" />
   </component>
 </project>
