@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
@@ -8,7 +8,7 @@ import model.Hobby;
 public class HobbyDAO {
 private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
 
-public Hobby readHobbyById(String id){
+public Hobby readHobbyById(int id){
     Hobby hobby;
     try(EntityManager em = emf.createEntityManager()){
         em.getTransaction().begin();
