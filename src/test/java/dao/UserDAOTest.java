@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserDAOTest {
 
-    UserDAO dao = new UserDAO();
-    AddressDAO addressDAO = new AddressDAO();
+    UserDAO dao = UserDAO.getInstance();
+    AddressDAO addressDAO = AddressDAO.getInstance();
 
     @Test
     void createUser() {
