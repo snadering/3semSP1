@@ -82,7 +82,7 @@ public class UserDAO {
         }
         return userPhoneNumberList;
     }
-
+    
     public List<Object[]> getAllHobbiesAndAmountOfInterested(){
     List<Object[]> hobbiesAndInterested;
         try (EntityManager em = emf.createEntityManager()) {
