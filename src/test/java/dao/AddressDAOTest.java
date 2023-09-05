@@ -11,11 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AddressDAOTest {
 
-    @BeforeEach
-    void setUp(){
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
-    }
-
     @Test
     void createAddress() {
         AddressDAO dao = new AddressDAO();
