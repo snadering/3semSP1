@@ -93,4 +93,16 @@ public class UserDAO {
         }
         return userInformationList;
     }
+
+
+    public List<User> getUsersByCity(int id){
+        List<User> usersByCitiesList;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where id(a.id) = :id", User.class);
+            usersByCitiesList = typedQuery.getResultList();
+        }
+        return usersByCitiesList;
+    }
+
 }
