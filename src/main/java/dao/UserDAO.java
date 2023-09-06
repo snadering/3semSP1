@@ -9,8 +9,20 @@ import model.User;
 import java.util.List;
 
 public class UserDAO {
+    private final EntityManagerFactory emf;
+    private static UserDAO instance;
 
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private UserDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+    }
+
+    public static UserDAO getInstance() {
+        if (instance == null) {
+            instance = new UserDAO();
+        }
+
+        return instance;
+    }
 
     public int createUser(User user){
         int id;
@@ -84,4 +96,28 @@ public class UserDAO {
              return typedQuery.setMaxResults(1).getSingleResult();
         }
     }
+
+
+    public List<User> getUsersByCity(int id){
+        List<User> usersByCitiesList;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where id(a.id) = :id", User.class);
+            usersByCitiesList = typedQuery.getResultList();
+        }
+        return usersByCitiesList;
+    }
+
+    public List<HobbyAndInterest> getAllHobbiesAndAmountOfInterested(){
+    List<HobbyAndInterest> hobbiesAndInterested;
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            String jpql = "SELECT new dto.HobbyAndInterest (h.name, COUNT(u)) " + "FROM User u " + "JOIN u.hobbies h " + "GROUP BY h.name";
+
+            TypedQuery<HobbyAndInterest> typedQuery = em.createQuery(jpql, HobbyAndInterest.class);
+            hobbiesAndInterested = typedQuery.getResultList();
+        }
+        return hobbiesAndInterested;
+    }
+
 }

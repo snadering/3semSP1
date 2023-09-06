@@ -12,8 +12,20 @@ import java.util.List;
 import java.util.Set;
 
 public class AddressDAO {
+    private final EntityManagerFactory emf;
+    private static AddressDAO instance;
 
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private AddressDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+    }
+
+    public static AddressDAO getInstance() {
+        if (instance == null) {
+            instance = new AddressDAO();
+        }
+
+        return instance;
+    }
 
     public int createAddress(Address address){
         int id;

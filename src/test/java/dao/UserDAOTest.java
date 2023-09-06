@@ -3,7 +3,6 @@ package dao;
 import model.Address;
 import model.User;
 import model.ZipCode;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserDAOTest {
 
-    UserDAO dao = new UserDAO();
-    AddressDAO addressDAO = new AddressDAO();
+    UserDAO dao = UserDAO.getInstance();
+    AddressDAO addressDAO = AddressDAO.getInstance();
 
     @Test
     void createUser() {

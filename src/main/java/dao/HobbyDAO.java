@@ -10,27 +10,40 @@ import model.User;
 import java.util.List;
 
 public class HobbyDAO {
-private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private final EntityManagerFactory emf;
+    private static HobbyDAO instance;
 
-public Hobby readHobbyById(int id){
-    Hobby hobby;
-    try(EntityManager em = emf.createEntityManager()){
-        em.getTransaction().begin();
-        hobby = em.find(Hobby.class, id);
-        em.getTransaction().commit();
+    private HobbyDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
     }
-    return hobby;
-}
 
-public List<User> allUsersWithGivenHobby(int id){
+    public static HobbyDAO getInstance() {
+        if (instance == null) {
+            instance = new HobbyDAO();
+        }
+
+        return instance;
+    }
+
+    public Hobby readHobbyById(int id){
+        Hobby hobby;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            hobby = em.find(Hobby.class, id);
+            em.getTransaction().commit();
+        }
+        return hobby;
+    }
+
+    public List<User> allUsersWithGivenHobby(int id){
         List<User> usersWithGivenHobby;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             TypedQuery<User> typedQuery = em.createQuery("select h.users from Hobby h where id(h.id) = :id", User.class);
             usersWithGivenHobby = typedQuery.getResultList();
+        }
+        return usersWithGivenHobby;
     }
-       return usersWithGivenHobby;
-}
 
     public int numberOfUsersWithGivenHobby(int id){
         int amountOfUsersWithGivenHobby;
