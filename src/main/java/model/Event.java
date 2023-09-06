@@ -1,5 +1,6 @@
 package model;
 
+import config.HibernateConfig;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,13 +35,16 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "address")
+    @ToString.Exclude
     private Address address;
 
     @ManyToOne
     @JoinColumn(name = "hobby")
+    @ToString.Exclude
     private Hobby hobby;
 
     @ManyToMany
+    @ToString.Exclude
     private Set<User> users = new HashSet<>();
 
     @Builder
@@ -55,6 +59,17 @@ public class Event {
     public void addUser(User user) {
         if (user != null) {
             users.add(user);
+        }
+    }
+
+    @PreRemove
+    public void removeEventUserLinks() {
+        try (var em = HibernateConfig.getEntityManagerFactoryConfig().createEntityManager()) {
+            em.getTransaction().begin();
+            Query q = em.createNativeQuery("DELETE FROM event_users WHERE event_id = :id");
+            q.setParameter("id", this.id);
+            q.executeUpdate();
+            em.getTransaction().commit();
         }
     }
 }
