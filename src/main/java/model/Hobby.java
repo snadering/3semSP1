@@ -27,7 +27,7 @@ public class Hobby {
     @Column(name = "category")
     private String category;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<User> users = new HashSet<>();
 
     public Hobby(String name, String category) {
