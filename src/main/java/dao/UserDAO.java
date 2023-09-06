@@ -10,27 +10,45 @@ import model.User;
 import java.util.List;
 
 public class UserDAO {
+    private final EntityManagerFactory emf;
+    private static UserDAO instance;
 
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private UserDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+    }
 
-    public void createUser(User user){
+    public static UserDAO getInstance() {
+        if (instance == null) {
+            instance = new UserDAO();
+        }
+
+        return instance;
+    }
+
+    public int createUser(User user){
+        int id;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
+            id = user.getId();
         }
+        return id;
     }
 
-    public void createUser(String name, String surname, String phoneNumber, String email){
+    public int createUser(String name, String surname, String phoneNumber, String email){
+        int id;
         User user = new User(name, surname, phoneNumber, email);
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
+            id = user.getId();
         }
+        return id;
     }
 
-    public User findUserById(int id){
+    public User readUserById(int id){
         User user;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
@@ -39,20 +57,18 @@ public class UserDAO {
         return user;
     }
 
-    public User updateUser (User user) {
-        User updatedUser = null;
+    public void updateUser (User user) {
         if (user.getId() != null){
             try(EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
-                updatedUser = em.merge(user);
+                em.merge(user);
                 em.getTransaction().commit();
             }
         }
-        return updatedUser;
     }
 
     public void deleteUser(int id) {
-        User user = findUserById(id);
+        User user = readUserById(id);
         if (user.getId() != null) {
             try (EntityManager em = emf.createEntityManager()) {
                 em.getTransaction().begin();
@@ -62,26 +78,35 @@ public class UserDAO {
         }
     }
 
-    public List<User> getAllInformationOnUser(int id){
-        List<User> userInformationList;
+    public List<String> getAllPhoneNumbersFromUserById(int id){
+        List<String> listOfPhoneNumbers;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            TypedQuery<User> typedQuery = em.createQuery("select u from User u where id(u.id) = :id", User.class);
+            TypedQuery<String> typedQuery = em.createQuery("select u.phoneNumber from User u where id(u.id) = :id", String.class);
             typedQuery.setParameter("id",id);
-            userInformationList = typedQuery.getResultList();
+            listOfPhoneNumbers = typedQuery.getResultList();
         }
-        return userInformationList;
+        return listOfPhoneNumbers;
     }
 
-    public List<User> getAllPhoneNumbersFromUser(int id){
-        List<User> userPhoneNumberList;
+    public User getAllInformationOnUserByPhoneNumber(String phoneNumber){
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            TypedQuery<User> typedQuery = em.createQuery("select u.phoneNumber from User u where id(u.id) = :id", User.class);
-            typedQuery.setParameter("id",id);
-            userPhoneNumberList = typedQuery.getResultList();
+            TypedQuery<User> typedQuery = em.createQuery("select u from User u where u.phoneNumber = :phoneNumber", User.class);
+            typedQuery.setParameter("phoneNumber",phoneNumber);
+             return typedQuery.setMaxResults(1).getSingleResult();
         }
-        return userPhoneNumberList;
+    }
+
+
+    public List<User> getUsersByCity(int id){
+        List<User> usersByCitiesList;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where id(a.id) = :id", User.class);
+            usersByCitiesList = typedQuery.getResultList();
+        }
+        return usersByCitiesList;
     }
 
     public List<HobbyAndInterest> getAllHobbiesAndAmountOfInterested(){
@@ -95,4 +120,5 @@ public class UserDAO {
         }
         return hobbiesAndInterested;
     }
+
 }
