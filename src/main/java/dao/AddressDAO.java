@@ -70,7 +70,7 @@ public class AddressDAO {
         return zipCode;
     }
 
-    public List<User> getUsersByCity(int zip){
+    public List<User> getUsersByCity(){
         List<User> usersByCitiesList;
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
