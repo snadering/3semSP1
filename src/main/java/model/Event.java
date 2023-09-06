@@ -3,6 +3,7 @@ package model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +24,14 @@ public class Event {
     @Column(name = "price")
     private float price;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
     @ManyToOne
     @JoinColumn(name = "address")
     private Address address;
@@ -35,10 +44,12 @@ public class Event {
     private Set<User> users = new HashSet<>();
 
     @Builder
-    public Event(String name, float price, Address address) {
+    public Event(String name, float price, Address address, LocalDate startDate, LocalDate endDate) {
         this.name = name;
         this.price = price;
         this.address = address;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public void addUser(User user) {
