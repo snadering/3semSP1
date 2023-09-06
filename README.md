@@ -50,8 +50,10 @@ Mange-til-mange med Brugere: Begivenheder kan have flere deltagere (brugere).</b
 Mange-til-én med Adresse: Begivenheder er forbundet med én primær adresse.</br>
 Mange-til-mange med Hobby: Begivenheder kan være relateret til flere hobbyer.</br>
 </br>
+<h3>Billede af domænemodel</h3>
 <img width="319" alt="Screenshot 2023-09-06 at 12 33 47" src="https://github.com/snadering/3semSP1/assets/113049401/1da48cbe-78c3-492d-9df4-2a4f13433161">
 </br>
 <h2>EER-Diagram</h2>
+<h3>Billede af EER-diagram</h3>
 <img width="560" alt="Screenshot 2023-09-06 at 12 37 55" src="https://github.com/snadering/3semSP1/assets/113049401/b91095c7-50bb-4f84-81fa-873109d95554">
 
