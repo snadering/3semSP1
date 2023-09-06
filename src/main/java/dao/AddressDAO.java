@@ -1,10 +1,16 @@
 package dao;
 
 import config.HibernateConfig;
+import dto.PostcodesAndCityNames;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 import model.Address;
+import model.User;
 import model.ZipCode;
+
+import java.util.List;
+import java.util.Set;
 
 public class AddressDAO {
     private final EntityManagerFactory emf;
@@ -78,10 +84,26 @@ public class AddressDAO {
         return zipCode;
     }
 
+    public List<User> getUsersByCity(int zip){
+        List<User> usersByCitiesList;
+        try(EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where a.zip = :zip", User.class);
+            typedQuery.setParameter("zip",zip);
+            usersByCitiesList = typedQuery.getResultList();
+        }
+        return usersByCitiesList;
+    }
 
-
-
-
+    public List<PostcodesAndCityNames> getAllPostcodesAndCityNamesInDenmark(){
+        List<PostcodesAndCityNames> allPostcodesAndCityNamesInDenmark;
+        try (EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<PostcodesAndCityNames> typedQuery = em.createQuery("select new dto.PostcodesAndCityNames(z.zip, z.cityName) from ZipCode z", PostcodesAndCityNames.class);
+            allPostcodesAndCityNamesInDenmark = typedQuery.getResultList();
+        }
+        return allPostcodesAndCityNamesInDenmark;
+    }
 }
 
 

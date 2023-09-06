@@ -1,7 +1,6 @@
 package dao;
 
 import config.HibernateConfig;
-import dto.HobbyAndInterest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -97,28 +96,4 @@ public class UserDAO {
              return typedQuery.setMaxResults(1).getSingleResult();
         }
     }
-
-
-    public List<User> getUsersByCity(int id){
-        List<User> usersByCitiesList;
-        try(EntityManager em = emf.createEntityManager()){
-            em.getTransaction().begin();
-            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where id(a.id) = :id", User.class);
-            usersByCitiesList = typedQuery.getResultList();
-        }
-        return usersByCitiesList;
-    }
-
-    public List<HobbyAndInterest> getAllHobbiesAndAmountOfInterested(){
-    List<HobbyAndInterest> hobbiesAndInterested;
-        try (EntityManager em = emf.createEntityManager()) {
-            em.getTransaction().begin();
-            String jpql = "SELECT new dto.HobbyAndInterest (h.name, COUNT(u)) " + "FROM User u " + "JOIN u.hobbies h " + "GROUP BY h.name";
-
-            TypedQuery<HobbyAndInterest> typedQuery = em.createQuery(jpql, HobbyAndInterest.class);
-            hobbiesAndInterested = typedQuery.getResultList();
-        }
-        return hobbiesAndInterested;
-    }
-
 }
