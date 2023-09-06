@@ -9,6 +9,7 @@ import model.User;
 import model.ZipCode;
 
 import java.util.List;
+import java.util.Set;
 
 public class AddressDAO {
 
@@ -70,22 +71,23 @@ public class AddressDAO {
         return zipCode;
     }
 
-    public List<User> getUsersByCity(){
+    public List<User> getUsersByCity(int zip){
         List<User> usersByCitiesList;
         try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where zip(a.zip) = :zip", User.class);
+            TypedQuery<User> typedQuery = em.createQuery("select a.users from Address a where a.zip = :zip", User.class);
+            typedQuery.setParameter("zip",zip);
             usersByCitiesList = typedQuery.getResultList();
         }
         return usersByCitiesList;
     }
 
-    public List<ZipCode> getAllPostcodesAndCityNamesInDenmark(){
-        List<ZipCode> allPostcodesAndCityNamesInDenmark;
+    public Set<ZipCode> getAllPostcodesAndCityNamesInDenmark(){
+        Set<ZipCode> allPostcodesAndCityNamesInDenmark;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             TypedQuery<ZipCode> typedQuery = em.createQuery("select z.zip, z.cityName from ZipCode z", ZipCode.class);
-            return allPostcodesAndCityNamesInDenmark = typedQuery.getResultList();
+            return allPostcodesAndCityNamesInDenmark = (Set<ZipCode>) typedQuery.getResultList();
         }
     }
 }
