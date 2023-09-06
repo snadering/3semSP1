@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="US:7 og rettelser på US:6">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/PostcodesAndCityNames.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AddressDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HobbyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/HobbyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -173,7 +176,7 @@
       <updated>1693822196070</updated>
       <workItem from="1693822197161" duration="291000" />
       <workItem from="1693822494693" duration="88000" />
-      <workItem from="1693989099028" duration="1488000" />
+      <workItem from="1693989099028" duration="2252000" />
     </task>
     <task id="LOCAL-00001" summary="Added entity classes">
       <option name="closed" value="true" />
@@ -247,7 +250,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693989676917</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="US:7 og rettelser på US:6">
+      <option name="closed" value="true" />
+      <created>1693990929548</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693990929548</updated>
+    </task>
+    <task id="LOCAL-00011" summary="US:7 og rettelser på US:6">
+      <option name="closed" value="true" />
+      <created>1693990934113</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693990934113</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
