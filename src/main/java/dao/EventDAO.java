@@ -6,7 +6,20 @@ import jakarta.persistence.EntityManagerFactory;
 import model.Event;
 
 public class EventDAO {
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private final EntityManagerFactory emf;
+    private static EventDAO instance;
+
+    private EventDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+    }
+
+    public static EventDAO getInstance() {
+        if (instance == null) {
+            instance = new EventDAO();
+        }
+
+        return instance;
+    }
 
     public void createEvent(Event event) {
         try (EntityManager em = emf.createEntityManager()) {

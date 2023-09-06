@@ -9,8 +9,20 @@ import model.User;
 import java.util.List;
 
 public class UserDAO {
+    private final EntityManagerFactory emf;
+    private static UserDAO instance;
 
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private UserDAO() {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+    }
+
+    public static UserDAO getInstance() {
+        if (instance == null) {
+            instance = new UserDAO();
+        }
+
+        return instance;
+    }
 
     public int createUser(User user){
         int id;
