@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/HobbyAndInterest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dat/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/basti/Documents/3-semester/Order-System",
+    "last_opened_file_path": "C:/Users/basti/Documents/3-semester/3semSP1",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -75,7 +77,20 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressDAOTest.deleteAddress">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dat.Main" />
+      <module name="3semSP1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AddressDAOTest.createAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="3semSP1" />
       <extension name="coverage">
@@ -140,28 +155,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="3semSP1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.UserTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AddressDAOTest.deleteAddress" />
         <item itemvalue="JUnit.AddressDAOTest.updateAddress" />
         <item itemvalue="JUnit.AddressDAOTest.readAddress" />
         <item itemvalue="JUnit.AddressDAOTest.createAddress" />
-        <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +175,8 @@
       <updated>1693822196070</updated>
       <workItem from="1693822197161" duration="291000" />
       <workItem from="1693822494693" duration="88000" />
-      <workItem from="1693914037670" duration="2364000" />
+      <workItem from="1693914037670" duration="2729000" />
+      <workItem from="1693987671939" duration="1509000" />
     </task>
     <task id="LOCAL-00001" summary="Added entity classes">
       <option name="closed" value="true" />
