@@ -82,12 +82,12 @@ public class AddressDAO {
         return usersByCitiesList;
     }
 
-    public Set<ZipCode> getAllPostcodesAndCityNamesInDenmark(){
-        Set<ZipCode> allPostcodesAndCityNamesInDenmark;
+    public List<ZipCode> getAllPostcodesAndCityNamesInDenmark(){
+        List<ZipCode> allPostcodesAndCityNamesInDenmark;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
             TypedQuery<ZipCode> typedQuery = em.createQuery("select z.zip, z.cityName from ZipCode z", ZipCode.class);
-            return allPostcodesAndCityNamesInDenmark = (Set<ZipCode>) typedQuery.getResultList();
+            return allPostcodesAndCityNamesInDenmark = typedQuery.getResultList();
         }
     }
 }
