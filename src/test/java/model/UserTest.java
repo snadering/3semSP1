@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
@@ -74,6 +76,8 @@ class UserTest {
                     .name("Roskilde festival")
                     .address(a)
                     .price(2250f)
+                    .startDate(LocalDate.of(2023, 6, 25))
+                    .endDate(LocalDate.of(2023, 7, 2))
                     .build();
 
             em.getTransaction().begin();
