@@ -16,7 +16,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -69,28 +68,28 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="dao" />
       <recent name="model" />
+      <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressDAOTest.deleteAddress">
-    <configuration name="AddressDAOTest.createAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.EventDAOTest">
+    <configuration name="EmailVerificationTest.testInvalidEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="3semSP1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.AddressDAOTest" />
-      <option name="METHOD_NAME" value="createAddress" />
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.EmailVerificationTest" />
+      <option name="METHOD_NAME" value="testInvalidEmail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressDAOTest.deleteAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EventDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="3semSP1" />
       <extension name="coverage">
         <pattern>
@@ -173,7 +172,7 @@
       <updated>1693822196070</updated>
       <workItem from="1693822197161" duration="291000" />
       <workItem from="1693822494693" duration="88000" />
-      <workItem from="1693989099028" duration="7194000" />
+      <workItem from="1693989099028" duration="19604000" />
     </task>
     <task id="LOCAL-00001" summary="Added entity classes">
       <option name="closed" value="true" />
@@ -301,6 +300,7 @@
     <MESSAGE value="Added AddressDAO + Test&#10;Added Entities: ZipCode + Address" />
     <MESSAGE value="Added entity classes" />
     <MESSAGE value="US:7 og rettelser på US:6" />
-    <option name="LAST_COMMIT_MESSAGE" value="US:7 og rettelser på US:6" />
+    <MESSAGE value="Email verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email verification" />
   </component>
 </project>
