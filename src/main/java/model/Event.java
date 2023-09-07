@@ -62,7 +62,6 @@ public class Event {
     public void prePersist() {
         validatePrice();
         validateName();
-        validateAddress();
         validateDate();
     }
 
@@ -78,11 +77,7 @@ public class Event {
         }
     }
 
-    private void validateAddress() {
-        if (address == null) {
-            throw new IllegalArgumentException("Invalid address");
-        }
-    }
+
     private void validateDate(){
         if (startDate==null || endDate==null){
             throw new IllegalArgumentException("Invalid date");

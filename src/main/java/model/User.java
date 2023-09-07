@@ -75,8 +75,6 @@ public class User {
     public void prePersist() {
         validateName();
         validateSurname();
-        //Usikker på om address skal med
-        validateAddress();
         validateEmail();
         validateNumber();
     }
@@ -97,11 +95,7 @@ public class User {
             throw new IllegalArgumentException("Invalid Email");
         }
     }
-    private void validateAddress(){
-        if(address == null){
-            throw new IllegalArgumentException("Invalid address");
-        }
-    }
+
     private void validateNumber(){
         if(phoneNumber==null){
             throw new IllegalArgumentException("Invalid phone number");

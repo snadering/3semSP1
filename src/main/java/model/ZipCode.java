@@ -53,7 +53,7 @@ public class ZipCode {
         }
     }
     private void validateZip() {
-        if (zip == 0) {
+        if (zip < 0) {
             throw new IllegalArgumentException("Invalid Name");
         }
     }
