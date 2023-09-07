@@ -70,7 +70,44 @@ Mange-til-mange med Hobby: Begivenheder kan være relateret til flere hobbyer.</
 <h3>Billede af domænemodel</h3>
 <img width="319" alt="Screenshot 2023-09-06 at 12 33 47" src="https://github.com/snadering/3semSP1/assets/113049401/1da48cbe-78c3-492d-9df4-2a4f13433161">
 </br>
+
 <h2>EER-Diagram</h2>
+
+<h4>Zipcode:</h4>
+Primærnøgle (PK): zip </br>
+Attributter: region_name (regionsnavn), city_name (bynavn), municipality_name (kommunenavn) </br>
+Gemmer information om postnumre og deres tilhørende region, by og kommune. </br>
+
+<h4>Address:</h4>
+Primærnøgle (PK): id </br>
+Attributter: street (gade), number (nummer) </br>
+Fremmednøgle (FK): zip (refererer til zip-tabellen) </br>
+Indeholder data relateret til fysiske adresser med en reference til postnumre. </br>
+
+<h4>Hobby:</h4> 
+Primærnøgle (PK): id </br>
+Attributter: name (navn), category (kategori), wikilink (wikilink), type (type) </br>
+Representerer forskellige hobbyer eller interesser, kategoriseret efter navn og kategori og med links til yderligere ressourcer. </br>
+
+<h4>Event:</h4>
+Primærnøgle (PK): id </br>
+Attributter: name (navn), price (pris) </br>
+Fremmednøgle (FK): address (refererer til address-tabellen), hobby (refererer til hobby-tabellen) </br>
+Gemmer information om arrangementer, herunder deres navne, priser og steder med links til adresser og tilknyttede hobbyer. </br>
+
+<h4>Users:</h4>
+Primærnøgle (PK): id </br>
+Attributter: name (navn), surname (efternavn), phone_number (telefonnummer), email (e-mail) </br>
+Fremmednøgle (FK): address (refererer til address-tabellen)
+Indeholder brugeroplysninger såsom navne, kontaktoplysninger og links til deres adresser. </br>
+
+<h4>Event_Users:</h4>
+Fremmedenøgler (FK): event_id (refererer til event-tabellen), users_id (refererer til users-tabellen)
+Representerer den mange-til-mange-relation mellem arrangementer og brugere og angiver, hvilke brugere der deltager i hvilke arrangementer. </br>
+
+<h4>Hobby_Users:</h4>
+Fremmedenøgler (FK): hobby_id (refererer til hobby-tabellen), users_id (refererer til users-tabellen)
+Representerer den mange-til-mange-relation mellem hobbyer og brugere og viser, hvilke hobbyer hver bruger er interesseret i. </br>
 <h3>Billede af EER-diagram</h3>
 <img width="560" alt="Screenshot 2023-09-06 at 12 37 55" src="https://github.com/snadering/3semSP1/assets/113049401/b91095c7-50bb-4f84-81fa-873109d95554">
 
