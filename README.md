@@ -1,5 +1,20 @@
 # 3semSP1
 <h1>JPA Project</h1>
+<h2>Business Idea</h2>
+Hobby Buddy: Focus on organizing and promoting hobby-related events and gatherings in various cities. Users can input their hobbies and preferences, and the platform suggests events and meetups they might enjoy. Revenue could come from event ticket sales, event promotion fees, or affiliate marketing. </br>
+
+<h2>User Stories</h2>
+[US-1] - As a user I want to get all the information about a person. </br>
+[US-2] - As a user I want to get all phone numbers from a given person. </br>
+[US-3] - As a user I want to get all persons with a given hobby. </br>
+[US-4] - As a user I want to get the number of people with a given hobby. </br>
+[US-5] - As a user I want to get a list all hobbies + a count of how many are interested in each hobby. </br>
+[US-6] As a user I want to get all persons living in a given city (i.e. 2625 Vallensbæk). </br>
+[US-7] As a user I want to get a list of all postcodes and city names in Denmark. </br>
+[US-8] As a user I want to get all the information about a person (address, hobbies etc) given a phone number. </br>
+[US-9] As a user I want to be able to do CRUD operations on all JPA entities unless it wouldn't make sense for a given entity. </br>
+
+
 <h2>Domænemodel</h2>
 <h3>Postnummer (Zipcode): </h3>
 
