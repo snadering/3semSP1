@@ -13,6 +13,8 @@ Hobby Buddy: Focus on organizing and promoting hobby-related events and gatherin
 [US-7] As a user I want to get a list of all postcodes and city names in Denmark. </br>
 [US-8] As a user I want to get all the information about a person (address, hobbies etc) given a phone number. </br>
 [US-9] As a user I want to be able to do CRUD operations on all JPA entities unless it wouldn't make sense for a given entity. </br>
+[US-10] Funktion til at hente alle event i en given tidsperiode. </br>
+[US-11] Funktion til at hente alle events relevante til given hobby. </br>
 
 
 <h2>Domænemodel</h2>
