@@ -3,6 +3,7 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.TypedQuery;
 import model.User;
 

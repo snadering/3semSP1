@@ -33,4 +33,28 @@ public class Address {
         this.number = number;
         this.zip = zip;
     }
+
+    @PrePersist
+    public void prePersist() {
+    validateNumber();
+    validateStreet();
+    validateZip();
+    }
+
+    private void validateStreet() {
+        if (street == null) {
+            throw new IllegalArgumentException("Invalid street name");
+        }
+    }
+
+    private void validateNumber() {
+        if (number == null) {
+            throw new IllegalArgumentException("Invalid number");
+        }
+    }
+    private void validateZip(){
+        if(zip == null){
+            throw new IllegalArgumentException("Invalid zipcode");
+        }
+    }
 }

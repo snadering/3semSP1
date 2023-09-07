@@ -67,6 +67,29 @@ public class Event {
         }
     }
 
+    @PrePersist
+    public void prePersist() {
+        validatePrice();
+        validateName();
+        validateDate();
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validatePrice() {
+        if (price == 0) {
+            throw new IllegalArgumentException("Invalid price");
+        }
+    }
+
+
+    private void validateDate(){
+        if (startDate==null || endDate==null){
+            throw new IllegalArgumentException("Invalid date");
     @PreRemove
     public void removeEventUserLinks() {
         try (var em = HibernateConfig.getEntityManagerFactoryConfig().createEntityManager()) {
@@ -75,6 +98,7 @@ public class Event {
             q.setParameter("id", this.id);
             q.executeUpdate();
             em.getTransaction().commit();
+
         }
     }
 }
