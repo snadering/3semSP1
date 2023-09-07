@@ -24,6 +24,9 @@ Hobby Buddy: Focus on organizing and promoting hobby-related events and gatherin
 <h4>Attributter:</h4>
 Zip: Postnummeret.</br>
 City: Byen tilknyttet postnummeret.</br>
+Region: Regionen tilknyttet til postnummeret </br>
+Municipality: Kommunen tilknyttet postnummeret </br>
+
 <h4>Relationer:</h4>
 Én-til-mange med Adresse: Et postnummer kan være forbundet med flere adresser.</br>
 
