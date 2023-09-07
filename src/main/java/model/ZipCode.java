@@ -30,4 +30,31 @@ public class ZipCode {
         this.regionName = regionName;
         this.municipalityName = municipalityName;
     }
+    @PrePersist
+    public void prePersist(){
+        validateZip();
+        validateCityName();
+        validateRegionName();
+        validateMunicipalityName();
+    }
+    private void validateCityName() {
+        if (cityName == null) {
+            throw new IllegalArgumentException("Invalid city name");
+        }
+    }
+    private void validateRegionName() {
+        if (regionName == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+    private void validateMunicipalityName() {
+        if (municipalityName == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+    private void validateZip() {
+        if (zip == 0) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
 }

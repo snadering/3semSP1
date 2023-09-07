@@ -70,4 +70,42 @@ public class User {
             event.addUser(this);
         }
     }
+
+    @PrePersist
+    public void prePersist() {
+        validateName();
+        validateSurname();
+        //Usikker på om address skal med
+        validateAddress();
+        validateEmail();
+        validateNumber();
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validateSurname() {
+        if (surname == null) {
+            throw new IllegalArgumentException("Invalid Surname");
+        }
+    }
+    private void validateEmail(){
+        if(email == null || !email.contains("@")){
+            throw new IllegalArgumentException("Invalid Email");
+        }
+    }
+    private void validateAddress(){
+        if(address == null){
+            throw new IllegalArgumentException("Invalid address");
+        }
+    }
+    private void validateNumber(){
+        if(phoneNumber==null){
+            throw new IllegalArgumentException("Invalid phone number");
+        }
+    }
+
 }

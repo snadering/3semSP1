@@ -57,4 +57,35 @@ public class Event {
             users.add(user);
         }
     }
+
+    @PrePersist
+    public void prePersist() {
+        validatePrice();
+        validateName();
+        validateAddress();
+        validateDate();
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validatePrice() {
+        if (price == 0) {
+            throw new IllegalArgumentException("Invalid price");
+        }
+    }
+
+    private void validateAddress() {
+        if (address == null) {
+            throw new IllegalArgumentException("Invalid address");
+        }
+    }
+    private void validateDate(){
+        if (startDate==null || endDate==null){
+            throw new IllegalArgumentException("Invalid date");
+        }
+    }
 }

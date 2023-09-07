@@ -40,4 +40,23 @@ public class Hobby {
             users.add(user);
         }
     }
+
+    @PrePersist
+    public void prePersist() {
+        validateName();
+        validateCategory();
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validateCategory() {
+        if (category == null) {
+            throw new IllegalArgumentException("Invalid Category");
+        }
+    }
+
 }
