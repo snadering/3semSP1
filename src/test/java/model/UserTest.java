@@ -19,6 +19,9 @@ class UserTest {
     @BeforeEach
     void setUp() {
         a = new Address();
+        a.setStreet("Campusvej");
+        a.setZip(new ZipCode(3400,"Hillerod","123","123"));
+        a.setNumber("2");
         emf = HibernateConfig.getEntityManagerFactoryConfig();
         u = User.builder()
                 .name("Test")
@@ -100,5 +103,22 @@ class UserTest {
             assertTrue(user.getEvents().contains(event));
             assertTrue(event.getUsers().contains(user));
         }
+    }
+
+    @Test
+    public void testValidEmail() {
+        // Valid email
+        u = new User();
+        u.setEmail("valid.email@example.com");
+        assertDoesNotThrow(() -> u.preUpdate());
+    }
+
+    @Test
+    public void testInvalidEmail() {
+        // Invalid email
+        u = new User();
+        u.setEmail("invalid_email");
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> u.preUpdate());
+        assertEquals("Invalid email address", exception.getMessage());
     }
 }

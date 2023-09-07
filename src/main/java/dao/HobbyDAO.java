@@ -5,6 +5,7 @@ import dto.HobbyAndInterest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import model.Event;
 import model.Hobby;
 import model.User;
 
@@ -26,6 +27,13 @@ public class HobbyDAO {
         return instance;
     }
 
+    public void createHobby(Hobby hobby) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            em.persist(hobby);
+            em.getTransaction().commit();
+        }
+    }
 
     public Hobby readHobbyById(int id){
         Hobby hobby;
