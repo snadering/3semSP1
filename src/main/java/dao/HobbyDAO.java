@@ -5,6 +5,7 @@ import dto.HobbyAndInterest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import model.Event;
 import model.Hobby;
 import model.User;
 
@@ -40,7 +41,8 @@ public class HobbyDAO {
         List<User> usersWithGivenHobby;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            TypedQuery<User> typedQuery = em.createQuery("select h.users from Hobby h where id(h.id) = :id", User.class);
+            TypedQuery<User> typedQuery = em.createQuery("select h.users from Hobby h where h.id = :id", User.class);
+            typedQuery.setParameter("id", id);
             usersWithGivenHobby = typedQuery.getResultList();
         }
         return usersWithGivenHobby;
@@ -50,7 +52,8 @@ public class HobbyDAO {
         int amountOfUsersWithGivenHobby;
         try (EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            TypedQuery<Integer> typedQuery = em.createQuery("select h.users from Hobby h where id(h.id) = :id", Integer.class);
+            TypedQuery<Integer> typedQuery = em.createQuery("select size(h.users) from Hobby h where h.id = :id", Integer.class);
+            typedQuery.setParameter("id", id);
             amountOfUsersWithGivenHobby = typedQuery.getSingleResult();
         }
         return amountOfUsersWithGivenHobby;
