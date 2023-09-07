@@ -30,6 +30,7 @@ class UserTest {
                 .phoneNumber("+4512345678")
                 .build();
         u.setAddress(a);
+
         try (var em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.persist(a);
