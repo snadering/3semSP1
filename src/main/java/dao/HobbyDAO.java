@@ -5,6 +5,7 @@ import dto.HobbyAndInterest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import model.Event;
 import model.Hobby;
 import model.User;
 
@@ -25,7 +26,6 @@ public class HobbyDAO {
 
         return instance;
     }
-
 
     public Hobby readHobbyById(int id){
         Hobby hobby;

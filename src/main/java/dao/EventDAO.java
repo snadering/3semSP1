@@ -67,6 +67,17 @@ public class EventDAO {
         }
     }
 
+    public List<Event> getAllEventsForSpecificHobby(int id){
+        List<Event> allEventsForSpecificHobby;
+        try (EntityManager em = emf.createEntityManager()){
+            em.getTransaction().begin();
+            TypedQuery<Event> typedQuery = em.createQuery("SELECT e FROM Event e WHERE e.hobby.id = :id", Event.class);
+            typedQuery.setParameter("id",id);
+            allEventsForSpecificHobby = typedQuery.getResultList();
+        }
+        return allEventsForSpecificHobby;
+    }
+
     public List<Event> getEventsInDateRange(LocalDate from, LocalDate to) {
         try (EntityManager em = emf.createEntityManager()) {
             TypedQuery<Event> query = em.createQuery("SELECT e FROM Event e WHERE (e.startDate >= :from OR e.endDate >= :from) AND (e.startDate <= :to OR e.endDate <= :to)", Event.class);

@@ -1,11 +1,10 @@
 package dao;
 
 import config.HibernateConfig;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
-import model.Address;
-import model.Event;
-import model.Hobby;
-import model.User;
+import jakarta.persistence.EntityManagerFactory;
+import model.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EventDAOTest {
+    EntityManagerFactory emf;
     EventDAO dao;
     AddressDAO aDao;
     HobbyDAO hDao;
@@ -28,6 +28,10 @@ class EventDAOTest {
         hDao = HobbyDAO.getInstance();
 
         Address a = new Address();
+        a.setStreet("Campusvej");
+        a.setZip(new ZipCode(3400,"Hillerod","123","123"));
+        a.setNumber("2");
+
         aDao.createAddress(a);
         Hobby h = hDao.readHobbyById(99);
         e = Event.builder()
@@ -69,6 +73,9 @@ class EventDAOTest {
     @Test
     void createEvent() {
         Address a = new Address();
+        a.setStreet("Campusvej");
+        a.setZip(new ZipCode(3400,"Hillerod","123","123"));
+        a.setNumber("2");
         aDao.createAddress(a);
         Hobby h = hDao.readHobbyById(99);
         Event e = Event.builder()
@@ -148,4 +155,42 @@ class EventDAOTest {
 
         System.out.println(events);
     }
+
+    @Test
+    void getAllEventsForSpecificHobby() {
+
+        Hobby hobby = hDao.readHobbyById(99);
+
+        Event event1 = createEventWithHobby("Event 1", hobby);
+        Event event2 = createEventWithHobby("Event 2", hobby);
+        Event event3 = createEventWithHobby("Event 3", hobby);
+
+        List<Event> eventsForHobby = dao.getAllEventsForSpecificHobby(hobby.getId());
+
+        assertTrue(!eventsForHobby.isEmpty());
+    }
+
+    private Event createEventWithHobby(String name, Hobby hobby) {
+        emf = HibernateConfig.getEntityManagerFactoryConfig();
+        Address a = new Address();
+        a.setStreet("Campusvej");
+        a.setZip(new ZipCode(3400,"Hillerod","123","123"));
+        a.setNumber("2");
+
+        aDao.createAddress(a);
+
+
+        Event event = Event.builder()
+                .name(name)
+                .address(a)
+                .price(2250f)
+                .startDate(LocalDate.of(2023, 6, 25))
+                .endDate(LocalDate.of(2023, 7, 2))
+                .build();
+        event.setHobby(hobby);
+
+        dao.createEvent(event);
+        return event;
+    }
+
 }
