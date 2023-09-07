@@ -86,10 +86,12 @@ public class Event {
         }
     }
 
-
-    private void validateDate(){
-        if (startDate==null || endDate==null){
+    private void validateDate() {
+        if (startDate == null || endDate == null) {
             throw new IllegalArgumentException("Invalid date");
+        }
+    }
+
     @PreRemove
     public void removeEventUserLinks() {
         try (var em = HibernateConfig.getEntityManagerFactoryConfig().createEntityManager()) {
@@ -98,7 +100,6 @@ public class Event {
             q.setParameter("id", this.id);
             q.executeUpdate();
             em.getTransaction().commit();
-
         }
     }
 }
