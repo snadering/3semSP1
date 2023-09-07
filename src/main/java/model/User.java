@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Setter
 @Getter
@@ -70,4 +72,19 @@ public class User {
             event.addUser(this);
         }
     }
+
+    @PreUpdate
+    public void preUpdate() {
+            if (!isValidEmail(email)) {
+                throw new IllegalArgumentException("Invalid email address");
+            }
+    }
+
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 }
