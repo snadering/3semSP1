@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Executable;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,9 +28,10 @@ class UserTest {
                 .name("Test")
                 .surname("Testersen")
                 .email("test@test.com")
-                .phoneNumber("+4512345678")
+                .phoneNumber("+45 12345678")
                 .build();
         u.setAddress(a);
+
         try (var em = emf.createEntityManager()) {
             em.getTransaction().begin();
             em.persist(a);
@@ -106,19 +108,31 @@ class UserTest {
     }
 
     @Test
-    public void testValidEmail() {
+    public void preUpdateValid() {
         // Valid email
         u = new User();
         u.setEmail("valid.email@example.com");
+        u.setPhoneNumber("+4512348765");
+        assertDoesNotThrow(() -> u.preUpdate());
+
+        u.setPhoneNumber("+45 12345678");
         assertDoesNotThrow(() -> u.preUpdate());
     }
 
     @Test
-    public void testInvalidEmail() {
+    public void preUpdateInvalid() {
         // Invalid email
         u = new User();
         u.setEmail("invalid_email");
+        u.setPhoneNumber("+45 12345678");
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> u.preUpdate());
         assertEquals("Invalid email address", exception.getMessage());
+
+        u.setEmail("valid@email.com");
+        u.setPhoneNumber("+85 12345678");
+        exception = assertThrows(IllegalArgumentException.class, () -> u.preUpdate());
+        assertEquals("Invalid phone number", exception.getMessage());
     }
+
+
 }

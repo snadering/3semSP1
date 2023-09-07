@@ -186,6 +186,7 @@ class EventDAOTest {
                 .price(2250f)
                 .startDate(LocalDate.of(2023, 6, 25))
                 .endDate(LocalDate.of(2023, 7, 2))
+                .difficulty(EventDifficulty.ADVANCED)
                 .build();
         event.setHobby(hobby);
 

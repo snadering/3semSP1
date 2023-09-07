@@ -77,8 +77,25 @@ public class User {
     public void prePersist() {
         validateName();
         validateSurname();
-        validateEmail();
-        validateNumber();
+
+        if (!isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address");
+        }
+
+        if (!isValidPhoneNumber(phoneNumber)) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        if (!isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address");
+        }
+
+        if (!isValidPhoneNumber(phoneNumber)) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
     }
 
     private void validateName() {
@@ -92,24 +109,6 @@ public class User {
             throw new IllegalArgumentException("Invalid Surname");
         }
     }
-    private void validateEmail(){
-        if(email == null || !email.contains("@")){
-            throw new IllegalArgumentException("Invalid Email");
-        }
-    }
-
-    private void validateNumber(){
-        if(phoneNumber==null){
-            throw new IllegalArgumentException("Invalid phone number");
-        }
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-            if (!isValidEmail(email)) {
-                throw new IllegalArgumentException("Invalid email address");
-            }
-    }
 
     private boolean isValidEmail(String email) {
         String emailRegex = "^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$";
@@ -119,5 +118,10 @@ public class User {
     }
 
 
-
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        String phoneRegex = "^(\\+45\\s?\\d{8}$)";
+        Pattern pattern = Pattern.compile(phoneRegex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
+    }
 }

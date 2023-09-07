@@ -33,6 +33,10 @@ public class Event {
     @Column(name = "end_date")
     private LocalDate endDate;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "difficulty")
+    private EventDifficulty difficulty;
+
     @ManyToOne
     @JoinColumn(name = "address")
     @ToString.Exclude
@@ -48,12 +52,13 @@ public class Event {
     private Set<User> users = new HashSet<>();
 
     @Builder
-    public Event(String name, float price, Address address, LocalDate startDate, LocalDate endDate) {
+    public Event(String name, float price, Address address, LocalDate startDate, LocalDate endDate, EventDifficulty difficulty) {
         this.name = name;
         this.price = price;
         this.address = address;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.difficulty = difficulty;
     }
 
     public void addUser(User user) {
