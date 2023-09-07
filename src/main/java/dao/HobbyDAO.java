@@ -27,14 +27,6 @@ public class HobbyDAO {
         return instance;
     }
 
-    public void createHobby(Hobby hobby) {
-        try (EntityManager em = emf.createEntityManager()) {
-            em.getTransaction().begin();
-            em.persist(hobby);
-            em.getTransaction().commit();
-        }
-    }
-
     public Hobby readHobbyById(int id){
         Hobby hobby;
         try(EntityManager em = emf.createEntityManager()){
