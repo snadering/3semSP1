@@ -75,42 +75,14 @@ public class User {
 
     @PrePersist
     public void prePersist() {
-       if (!isValidEmail(email)) {
-           throw new IllegalArgumentException("Invalid email address");
-       }
-
-        if (!isValidPhoneNumber(phoneNumber)) {
-            throw new IllegalArgumentException("Invalid phone number");
-        }
-    }
-
-    @PrePersist
-    public void prePersist() {
         validateName();
         validateSurname();
-        validateEmail();
-        validateNumber();
-    }
 
-    private void validateName() {
-        if (name == null) {
-            throw new IllegalArgumentException("Invalid Name");
+        if (!isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address");
         }
-    }
 
-    private void validateSurname() {
-        if (surname == null) {
-            throw new IllegalArgumentException("Invalid Surname");
-        }
-    }
-    private void validateEmail(){
-        if(email == null || !email.contains("@")){
-            throw new IllegalArgumentException("Invalid Email");
-        }
-    }
-
-    private void validateNumber(){
-        if(phoneNumber==null){
+        if (!isValidPhoneNumber(phoneNumber)) {
             throw new IllegalArgumentException("Invalid phone number");
         }
     }
@@ -123,6 +95,18 @@ public class User {
 
         if (!isValidPhoneNumber(phoneNumber)) {
             throw new IllegalArgumentException("Invalid phone number");
+        }
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validateSurname() {
+        if (surname == null) {
+            throw new IllegalArgumentException("Invalid Surname");
         }
     }
 
@@ -140,6 +124,4 @@ public class User {
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
-
-
 }
