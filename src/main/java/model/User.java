@@ -73,6 +73,37 @@ public class User {
         }
     }
 
+    @PrePersist
+    public void prePersist() {
+        validateName();
+        validateSurname();
+        validateEmail();
+        validateNumber();
+    }
+
+    private void validateName() {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Name");
+        }
+    }
+
+    private void validateSurname() {
+        if (surname == null) {
+            throw new IllegalArgumentException("Invalid Surname");
+        }
+    }
+    private void validateEmail(){
+        if(email == null || !email.contains("@")){
+            throw new IllegalArgumentException("Invalid Email");
+        }
+    }
+
+    private void validateNumber(){
+        if(phoneNumber==null){
+            throw new IllegalArgumentException("Invalid phone number");
+        }
+    }
+
     @PreUpdate
     public void preUpdate() {
             if (!isValidEmail(email)) {
