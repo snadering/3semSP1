@@ -73,11 +73,26 @@ public class User {
         }
     }
 
+    @PrePersist
+    public void prePersist() {
+       if (!isValidEmail(email)) {
+           throw new IllegalArgumentException("Invalid email address");
+       }
+
+        if (!isValidPhoneNumber(phoneNumber)) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
+    }
+
     @PreUpdate
     public void preUpdate() {
-            if (!isValidEmail(email)) {
-                throw new IllegalArgumentException("Invalid email address");
-            }
+        if (!isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address");
+        }
+
+        if (!isValidPhoneNumber(phoneNumber)) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
     }
 
     private boolean isValidEmail(String email) {
@@ -87,6 +102,13 @@ public class User {
         return matcher.matches();
     }
 
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        String phoneRegex = "^(\\+45\\s?\\d{8}$)";
+        Pattern pattern = Pattern.compile(phoneRegex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
+    }
 
 
 }
