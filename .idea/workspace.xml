@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="US:7 og rettelser på US:6">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EventDAO.java" afterDir="false" />
-    </list>
+    <list default="true" id="da2157ea-33f8-4408-aaf1-3027c9a7fd74" name="Changes" comment="Email verification + test.&#10;EventDAO funktion + test.&#10;Tilføjet lidt data rundt omkring i testene for det virker." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,39 +70,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EventDAOTest">
-    <configuration name="EmailVerificationTest.testInvalidEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="3semSP1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.EmailVerificationTest" />
-      <option name="METHOD_NAME" value="testInvalidEmail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="3semSP1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.AddressDAOTest" />
-      <option name="METHOD_NAME" value="deleteAddress" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="AddressDAOTest.readAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="3semSP1" />
       <extension name="coverage">
@@ -137,6 +103,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EmailVerificationTest.testInvalidEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="3semSP1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.EmailVerificationTest" />
+      <option name="METHOD_NAME" value="testInvalidEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="3semSP1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.AddressDAOTest" />
+      <option name="METHOD_NAME" value="deleteAddress" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="3semSP1" />
       <extension name="coverage">
@@ -157,8 +155,6 @@
         <item itemvalue="JUnit.UserTest" />
         <item itemvalue="JUnit.AddressDAOTest.updateAddress" />
         <item itemvalue="JUnit.AddressDAOTest.readAddress" />
-        <item itemvalue="JUnit.AddressDAOTest.deleteAddress" />
-        <item itemvalue="JUnit.AddressDAOTest.createAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693991718949</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Email verification + test.&#10;EventDAO funktion + test.&#10;Tilføjet lidt data rundt omkring i testene for det virker.">
+      <option name="closed" value="true" />
+      <created>1694107728820</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694107728820</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +305,7 @@
     <MESSAGE value="Added entity classes" />
     <MESSAGE value="US:7 og rettelser på US:6" />
     <MESSAGE value="Email verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Email verification" />
+    <MESSAGE value="Email verification + test.&#10;EventDAO funktion + test.&#10;Tilføjet lidt data rundt omkring i testene for det virker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Email verification + test.&#10;EventDAO funktion + test.&#10;Tilføjet lidt data rundt omkring i testene for det virker." />
   </component>
 </project>
