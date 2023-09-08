@@ -2,7 +2,9 @@
 <h1>JPA Project</h1>
 <p"> af Bastian Holm, Christian Stennicke, Sander Roust, Tobias Berg og Tobias Christiansen</p>
 <h2>Business Idea</h2>
-Hobby Buddy: Focus on organizing and promoting hobby-related events and gatherings in various cities. Users can input their hobbies and preferences, and the platform suggests events and meetups they might enjoy. Revenue could come from event ticket sales, event promotion fees, or affiliate marketing. </br>
+Hobby Buddy: Focus on organizing and promoting hobby-related events and gatherings in various cities. 
+Users can input their hobbies and preferences, and the platform suggests events and meetups they might enjoy. 
+Revenue could come from event ticket sales, event promotion fees, or affiliate marketing. </br>
 
 <h2>User Stories</h2>
 [US-1] - As a user I want to get all the information about a person. </br>
